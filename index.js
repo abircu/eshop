@@ -105,42 +105,9 @@ app.delete('/order/:id',async(req,res)=>{
   const result=orderCollection.deleteOne(query)
   res.send(result)
 })
-// app.delete('/user/:id',async(req,res)=>{
-//   const userCollection= (await db).collection('user');
-//   const id=req.params.id;
-//   const query={_id: new ObjectId(id)}
-//   const result=userCollection.deleteOne(query)
-//   res.send(result)
-// })
-
-
-// for sending data front-end to backend througth the server
-// app.post('/coffee',async(req,res)=>{
-//   const user=req.body;
-//   const collection = (await db).collection('coffee')
-//   console.log('new user',user);
-//   // const result=await usersCollection.insertOne(user);
-//   // res.send(result);
-//   const result=await collection.insertOne(user);
-//   res.send(result);
-// })
-// update in database
-// app.put('/coffee/:id', async(req,res)=>{
-//   const id=req.params.id;
-//   const filter={_id: new ObjectId(id)}
-//   const options={upsert:true};
-//   const updatedCoffee=req.body;
-//   const coffee={
-//     $set:{
-//       name:updatedCoffee.name,
-//       suplier:updatedCoffee.suplier,
-//       taste:updatedCoffee.taste, 
-//       category:updatedCoffee.category,
-//       details:updatedCoffee.details,
-
 
 app.listen(port,()=>{
     console.log(`sarder tech server is running on port: ${port}`)
 })
 
-// mongodb password  2cOJHki8proIoYFq
+module.exports = app;
