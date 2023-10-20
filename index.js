@@ -82,7 +82,7 @@ app.put('/product/update/:id',async(req,res)=>{
 //delete single product
 app.delete('/product/:id',(req,res)=>{
     
-  res.send('coffe making server is running.....');
+  res.send('Sarder tech Server is running.....');
 })
 
 //create order 
@@ -115,42 +115,42 @@ app.delete('/user/:id',async(req,res)=>{
 
 
 // for sending data front-end to backend througth the server
-app.post('/coffee',async(req,res)=>{
-  const user=req.body;
-  const collection = (await db).collection('coffee')
-  console.log('new user',user);
-  // const result=await usersCollection.insertOne(user);
-  // res.send(result);
-  const result=await collection.insertOne(user);
-  res.send(result);
-})
+// app.post('/coffee',async(req,res)=>{
+//   const user=req.body;
+//   const collection = (await db).collection('coffee')
+//   console.log('new user',user);
+//   // const result=await usersCollection.insertOne(user);
+//   // res.send(result);
+//   const result=await collection.insertOne(user);
+//   res.send(result);
+// })
 // update in database
-app.put('/coffee/:id', async(req,res)=>{
-  const id=req.params.id;
-  const filter={_id: new ObjectId(id)}
-  const options={upsert:true};
-  const updatedCoffee=req.body;
-  const coffee={
-    $set:{
-      name:updatedCoffee.name,
-      suplier:updatedCoffee.suplier,
-      taste:updatedCoffee.taste, 
-      category:updatedCoffee.category,
-      details:updatedCoffee.details,
-      photo:updatedCoffee.photo
-    }
-  }
-  const result = (await db).collection('coffee').updateOne(filter,coffee,options);
-  const coffeeUpdate=await result;
-  res.send(coffeeUpdate)
-})
-// Delete operation
-app.delete('/coffee/:id', async(req, res)=>{
-  const id=req.params.id;
-  const query={_id:new ObjectId(id)}
-  const result=(await db).collection('coffee').deleteOne(query)
-  res.send(result)
-})
+// app.put('/coffee/:id', async(req,res)=>{
+//   const id=req.params.id;
+//   const filter={_id: new ObjectId(id)}
+//   const options={upsert:true};
+//   const updatedCoffee=req.body;
+//   const coffee={
+//     $set:{
+//       name:updatedCoffee.name,
+//       suplier:updatedCoffee.suplier,
+//       taste:updatedCoffee.taste, 
+//       category:updatedCoffee.category,
+//       details:updatedCoffee.details,
+//       photo:updatedCoffee.photo
+//     }
+//   }
+//   const result = (await db).collection('coffee').updateOne(filter,coffee,options);
+//   const coffeeUpdate=await result;
+//   res.send(coffeeUpdate)
+// })
+// // Delete operation
+// app.delete('/coffee/:id', async(req, res)=>{
+//   const id=req.params.id;
+//   const query={_id:new ObjectId(id)}
+//   const result=(await db).collection('coffee').deleteOne(query)
+//   res.send(result)
+// })
 
 app.listen(port,()=>{
     console.log(`coffe server is running on port: ${port}`)
