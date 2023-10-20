@@ -82,7 +82,7 @@ app.put('/product/update/:id',async(req,res)=>{
 //delete single product
 app.delete('/product/:id',(req,res)=>{
     
-  res.send('Sarder tech Server is running.....');
+  res.send('coffe making server is running.....');
 })
 
 //create order 
@@ -105,13 +105,13 @@ app.delete('/order/:id',async(req,res)=>{
   const result=orderCollection.deleteOne(query)
   res.send(result)
 })
-app.delete('/user/:id',async(req,res)=>{
-  const userCollection= (await db).collection('user');
-  const id=req.params.id;
-  const query={_id: new ObjectId(id)}
-  const result=userCollection.deleteOne(query)
-  res.send(result)
-})
+// app.delete('/user/:id',async(req,res)=>{
+//   const userCollection= (await db).collection('user');
+//   const id=req.params.id;
+//   const query={_id: new ObjectId(id)}
+//   const result=userCollection.deleteOne(query)
+//   res.send(result)
+// })
 
 
 // for sending data front-end to backend througth the server
@@ -137,23 +137,10 @@ app.delete('/user/:id',async(req,res)=>{
 //       taste:updatedCoffee.taste, 
 //       category:updatedCoffee.category,
 //       details:updatedCoffee.details,
-//       photo:updatedCoffee.photo
-//     }
-//   }
-//   const result = (await db).collection('coffee').updateOne(filter,coffee,options);
-//   const coffeeUpdate=await result;
-//   res.send(coffeeUpdate)
-// })
-// // Delete operation
-// app.delete('/coffee/:id', async(req, res)=>{
-//   const id=req.params.id;
-//   const query={_id:new ObjectId(id)}
-//   const result=(await db).collection('coffee').deleteOne(query)
-//   res.send(result)
-// })
+
 
 app.listen(port,()=>{
-    console.log(`coffe server is running on port: ${port}`)
+    console.log(`sarder tech server is running on port: ${port}`)
 })
 
 // mongodb password  2cOJHki8proIoYFq
